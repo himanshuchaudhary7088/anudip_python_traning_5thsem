@@ -1,12 +1,13 @@
 # Program to calculate Area and Perimeter of Rectangle
-
 # Enter length and breadth
-length = float(input("Enter length of rectangle: "))
-breadth = float(input("Enter breadth of rectangle: "))
+length = float(input("Enter length of rectangle(in cm): "))
+breadth = float(input("Enter breadth of rectangle(in cm): "))
 
 # Validate input
-if length <= 0 or breadth <= 0:
-    exit("Length and breadth must be greater than 0.")
+if breadth <= 0:
+    exit("breadth must be greater than 0.")
+if length <= 0:
+    exit("Length must be greater than 0.")
 
 # Calculate area
 area = length * breadth
