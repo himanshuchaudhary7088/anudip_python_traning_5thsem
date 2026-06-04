@@ -10,4 +10,4 @@ while entered_pin != pin:
     entered_pin = int(input("Enter the four digit PIN again: "))
 #pin verified
 print("----******----")
-print("PIN Verified") 
+print("PIN Verified")
