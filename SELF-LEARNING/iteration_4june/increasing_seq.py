@@ -1,40 +1,41 @@
-# Program to find the length of the longest continuous increasing sequence
+# Program to find longest continuous increasing sequence
 
-# Accept total numbers
-n = int(input("Enter the total number of numbers: "))
+# Accept number of elements
+n = int(input("Enter total numbers: "))
 
 # Validate input
 if n <= 0:
-    print("Invalid Input! Count must be greater than 0.")
+    print("Invalid Input")
+
 else:
 
-    # Input first number
-    previous = int(input("Enter number 1: "))
+    # Take first number
+    prev = int(input("Enter number 1: "))
 
     # Initialize counters
     current_length = 1
     longest_length = 1
 
-    # Accept remaining numbers
     i = 2
 
+    # Loop for remaining numbers
     while i <= n:
 
-        num = int(input("Enter number " + str(i) + ": "))
+        num = int(input("Enter number: "))
 
-        if num > previous:
+        # Check increasing sequence
+        if num > prev:
             current_length = current_length + 1
         else:
             if current_length > longest_length:
                 longest_length = current_length
-
             current_length = 1
 
-        previous = num
+        prev = num
         i = i + 1
 
+    # Final check
     if current_length > longest_length:
         longest_length = current_length
 
-    # Display result
     print("Longest Sequence Length =", longest_length)
