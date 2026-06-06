@@ -24,8 +24,8 @@ bookings = (
 print("Confirmed Passengers:")
 for booking in bookings:
     if booking[2] == "Confirmed":
-        print("Passenger ID:", booking[0],
-              "Destination:", booking[1])
+        print(booking[0],
+               booking[1])
 
 # --------------------------------------------------
 # 2. Count passengers travelling to Delhi
