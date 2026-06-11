@@ -21,50 +21,86 @@ Tasks
 5. Store the updated reservation status in reservations.txt.  
 6. Display occupancy percentage. '''
 #------------------------------------------------------------
-# Smart Railway Reservation System
-seats = { 
-    1: "Booked", 
-    2: "Available", 
-    3: "Booked", 
-    4: "Available", 
-    5: "Booked", 
-    6: "Booked", 
-    7: "Available", 
-    8: "Booked", 
-    9: "Available", 
-    10: "Booked" 
-} 
+# Smart Railway Reservation System (Beginner Version)
 
-    #check the available seats
-print("Available Seats:", [seat for seat, status in seats.items() if status == "Available"])
-#count booked and available seats
+# Step 1: Seat data (1 = seat number, value = status)
+seats = {
+    1: "Booked",
+    2: "Available",
+    3: "Booked",
+    4: "Available",
+    5: "Booked",
+    6: "Booked",
+    7: "Available",
+    8: "Booked",
+    9: "Available",
+    10: "Booked"
+}
 
-booked_count = sum(1 for status in seats.values() if status == "Booked")
-available_count = sum(1 for status in seats.values() if status == "Available")
-print(f"Booked Seats: {booked_count}, Available Seats: {available_count}")
-#reserve the first available seat
-for seat, status in seats.items():
-    if status == "Available":
+# Step 2: Show all available seats
+print("Available Seats are:")
+
+for seat in seats:
+    if seats[seat] == "Available":
+        print(seat, end=" ")
+
+print()  # new line
+
+
+# Step 3: Count booked and available seats
+booked = 0
+available = 0
+
+for status in seats.values():
+    if status == "Booked":
+        booked += 1
+    else:
+        available += 1
+
+print("Booked Seats:", booked)
+print("Available Seats:", available)
+
+
+# Step 4: Book first available seat
+for seat in seats:
+    if seats[seat] == "Available":
         seats[seat] = "Booked"
-        print(f"Seat {seat} reserved.")
+        print("Seat", seat, "has been reserved.")
         break
-   
 
-#cancel booking for a given seat number
-seat_number = int(input("Enter Seat Number to Cancel Booking: "))
-if seat_number in seats and seats[seat_number] == "Booked":
-    seats[seat_number] = "Available"
-    print(f"Booking for Seat {seat_number} cancelled.")
+
+# Step 5: Cancel booking
+seat_number = int(input("Enter seat number to cancel booking: "))
+
+if seat_number in seats:
+    if seats[seat_number] == "Booked":
+        seats[seat_number] = "Available"
+        print("Booking cancelled for seat", seat_number)
+    else:
+        print("This seat is already available.")
 else:
-        print("Invalid seat number or seat is not booked.")
-#store the updated reservation status in reservations.txt
-with open("reservations.txt", "w") as f:
-    for seat, status in seats.items():
-     f.write(f"Seat {seat}: {status}\n")
-     print("Updated reservation status stored in reservations.txt.")
-#display occupancy percentage
+    print("Invalid seat number.")
+
+
+# Step 6: Save updated data to file
+file = open("reservations.txt", "w")
+
+for seat in seats:
+    file.write("Seat " + str(seat) + ": " + seats[seat] + "\n")
+
+file.close()
+print("Updated data saved in reservations.txt")
+
+
+# Step 7: Calculate occupancy percentage
 total_seats = len(seats)
-booked_seats = sum(1 for status in seats.values() if status == "Booked")
-occupancy_percentage = (booked_seats / total_seats) * 100 if total_seats > 0 else 0
-print(f"Occupancy Percentage: {occupancy_percentage:.2f}%")
-print("Reservation Details Saved Successfully.")
+booked_count = 0
+
+for status in seats.values():
+    if status == "Booked":
+        booked_count += 1
+
+occupancy = (booked_count / total_seats) * 100
+
+print("Occupancy Percentage:", round(occupancy, 2), "%")
+print("System update completed.")
