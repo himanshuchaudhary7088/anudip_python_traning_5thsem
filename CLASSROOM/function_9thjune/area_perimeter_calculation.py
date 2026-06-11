@@ -30,34 +30,35 @@ while True:
     if figure == 1:
 
         length = float(input("Enter Length: "))
-        if length <= 0 :
+        if length <= 0:
             print("Length must be greater than 0")
             continue
-        
+
         breadth = float(input("Enter Breadth: "))
-        if breadth <= 0 :
+        if breadth <= 0:
             print("Breadth must be greater than 0")
             continue
 
         while True:
 
-            print("\n1. Area")
-            print("2. Perimeter")
-            print("3. Change Figure")
+         print("\n1. Area")
+         print("2. Perimeter")
+         print("3. Change Figure")
 
-            choice = int(input("Enter Choice: "))
+         choice = int(input("Enter Choice: "))
+   
+         if choice == 1:
+           print("Area =", area_of_rectangle(length, breadth))
 
-            if choice == 1:
-                print("Area =", area_of_rectangle(length, breadth))
+         elif choice == 2:
+           print("Perimeter =", perimeter_of_rectangle(length, breadth))
 
-            elif choice == 2:
-                print("Perimeter =", perimeter_of_rectangle(length, breadth))
+         elif choice == 3:
+          break
 
-            elif choice == 3:
-                break
-
-            else:
-                print("Invalid Operation Choice")
+         else:
+          print("Invalid Operation Choice")
+         continue
 
     # ---------------- Circle ----------------
 
