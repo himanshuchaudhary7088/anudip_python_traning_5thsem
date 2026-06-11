@@ -1,5 +1,10 @@
-parking_slots = [ 
-    "Occupied", "Vacant", "Occupied", "Vacant", 
-    "Occupied", "Occupied", "Vacant", "Occupied", 
-    "Vacant", "Occupied" 
-] 
+Occupied
+Occupied
+Occupied
+Vacant
+Occupied
+Occupied
+Vacant
+Occupied
+Vacant
+Occupied

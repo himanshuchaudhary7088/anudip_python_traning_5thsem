@@ -1,4 +1,4 @@
-# Program to calculate electricity bill using progressive slab rates
+# Program to calculate electricity bill
 
 # Accept units consumed
 units = int(input("Enter electricity units consumed: "))
@@ -8,7 +8,7 @@ if units < 0:
     print("Invalid Input! Units cannot be negative.")
 else:
 
-    # Calculate bill according to progressive slabs
+    # Calculate bill according to slabs
     if units <= 100:
         bill = units * 5
 
@@ -23,5 +23,5 @@ else:
         surcharge = bill * 0.10
         bill = bill + surcharge
 
-    # Display final payable amount
+    # Display final bill
     print("Final Payable Amount = ₹", bill)

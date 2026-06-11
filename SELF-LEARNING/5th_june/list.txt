@@ -1,0 +1,13 @@
+                 list
+
+append(): is used to insert data at the end 
+len(list name): to find the numbers of element in the list 
+insert(): to insert data at given index
+     example : listname.insert(index,element)
+extend(): list ka method hai jo ek list ke saare elements ko dusri list me add karta hai.
+      example: list1 = [10, 20, 30]
+               list2 = [40, 50, 60]
+               list1.extend(list2) = [10, 20, 30, 40, 50, 60]
+pop(): to remove element from specific index, if index not specified , then last element gets deleted
+       example: listname.pop(index)
+remove(element) : to remove specify elements from first occurance standing from 0 
